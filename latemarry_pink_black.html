@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Late Marry - Where Love Finds Perfect Timing</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ffb6c1, #2c2c2c);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: #ffc0cb;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+    background: 
+        linear-gradient(135deg, rgba(255, 182, 193, 0.8), rgba(44, 44, 44, 0.8)),
+        url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') 
+        center/cover no-repeat;
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><path d="M0,0 C150,100 350,0 500,50 C650,100 850,0 1000,50 L1000,0 Z"/></svg>') repeat-x;
+            animation: wave 20s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateX(0px) }
+            50% { transform: translateX(-50px) }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            background: white;
+            color: #2c2c2c;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+            background: #ffb6c1;
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #ffb6c1;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #2c2c2c;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: rotate(2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c2c2c;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #ffeef0, #ffe4e7);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffb6c1;
+            box-shadow: 0 20px 50px rgba(255, 182, 193, 0.3);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #ffb6c1;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+        }
+
+        .feature-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .gallery {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c2c2c;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(44, 44, 44, 0.9));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .download {
+            padding: 80px 0;
+            background: 
+                linear-gradient(135deg, rgba(255, 182, 193, 0.95), rgba(44, 44, 44, 0.95)),
+                url('https://images.unsplash.com/photo-1525258832-4c5a3e79816f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .download h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .download p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .app-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .app-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .app-button:hover {
+            background: rgba(255,182,193,0.4);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-3px);
+        }
+
+        .app-button i {
+            font-size: 1.5rem;
+        }
+
+        footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffb6c1;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 2;
+        }
+
+        .footer-section a:hover {
+            color: #ffb6c1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-heart"></i>
+                Late Marry
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#download">Download</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="floating">Where Love Finds Perfect Timing</h1>
+                <p>Every love story is unique, and timing is everything. At Late Marry, we believe that the right person is worth waiting for, and when you find them, it's never too late to begin your beautiful journey together.</p>
+                <a href="#download" class="cta-button">Find Your Perfect Match</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about fade-in" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Love Beyond Timelines</h2>
+                    <p>Marriage is not just a union of two hearts, but a sacred bond that transcends time, age, and societal expectations. It's about finding someone who complements your soul, shares your dreams, and walks alongside you through life's beautiful journey.</p>
+                    <p>At Late Marry, we understand that love doesn't follow schedules. Whether you've been focused on building your career, caring for family, or simply waiting for the right person, your timing is perfect because it's yours.</p>
+                    <p>Our platform celebrates mature connections, meaningful conversations, and relationships built on understanding, respect, and genuine compatibility.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Happy Indian couple in traditional wedding attire">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features fade-in" id="features">
+        <div class="container">
+            <h2>Why Choose Late Marry?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Verified Profiles</h3>
+                    <p>Every profile is thoroughly verified to ensure authentic connections and genuine relationships built on trust.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Mature Community</h3>
+                    <p>Connect with like-minded individuals who value meaningful relationships and are ready for serious commitments.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Smart Matching</h3>
+                    <p>Our advanced algorithm considers your preferences, values, and lifestyle to find truly compatible matches.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Privacy First</h3>
+                    <p>Your privacy and security are our top priorities with robust safety features and secure communication.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Meaningful Conversations</h3>
+                    <p>Engage in deep, thoughtful conversations with our secure messaging system designed for serious connections.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Global Reach</h3>
+                    <p>Connect with compatible matches from around the world, breaking geographical boundaries for love.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery fade-in" id="gallery">
+        <div class="container">
+            <h2>Celebrating Love Stories</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Beautiful Indian wedding ceremony">
+                    <div class="gallery-overlay">
+                        <h4>Sacred Ceremonies</h4>
+                        <p>Traditional Indian weddings filled with joy and blessings</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Happy couple in wedding attire">
+                    <div class="gallery-overlay">
+                        <h4>Perfect Matches</h4>
+                        <p>Couples who found their soulmate through meaningful connections</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wedding celebration with family">
+                    <div class="gallery-overlay">
+                        <h4>Family Blessings</h4>
+                        <p>Celebrating love with family and friends by your side</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Romantic couple portrait">
+                    <div class="gallery-overlay">
+                        <h4>Timeless Love</h4>
+                        <p>Love stories that prove timing is everything</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="download fade-in" id="download">
+        <div class="container">
+            <h2>Start Your Journey Today</h2>
+            <p>Download the Late Marry app and take the first step towards finding your perfect life partner. Your happily ever after is just a tap away.</p>
+            <div class="app-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.latemarry&pcampaignid=web_share" class="app-button" target="_blank">
+                    <i class="fab fa-google-play"></i>
+                    Download for Android
+                </a>
+                <a href="#" class="app-button">
+                    <i class="fab fa-apple"></i>
+                    Coming Soon on iOS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Late Marry</h3>
+                    <p>Where love finds perfect timing. Connecting hearts across the world with meaningful relationships that last a lifetime.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#about">About Us</a></p>
+                    <p><a href="#features">Features</a></p>
+                    <p><a href="#gallery">Success Stories</a></p>
+                    <p><a href="#download">Download App</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p><a href="mailto:support@latemarry.com">support@latemarry.com</a></p>
+                    <p><a href="tel:+919074340646">+91 90743 40646</a></p>
+                    <p>Privacy Policy</p>
+                    <p>Terms of Service</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us for updates and success stories</p>
+                    <div style="margin-top: 15px;">
+                        <a href="#" style="margin-right: 15px; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="margin-right: 15px; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="margin-right: 15px; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Late Marry by Luz Software Labs Private Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(236, 72, 153, 0.95), rgba(219, 39, 119, 0.95))';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #ffc0cb, #ffb6c1)';
+            }
+        });
+
+        document.querySelectorAll('.feature-card, .gallery-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = this.classList.contains('feature-card') 
+                    ? 'translateY(-10px) scale(1.02)' 
+                    : 'scale(1.05) rotate(1deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = this.classList.contains('feature-card') 
+                    ? 'translateY(0) scale(1)' 
+                    : 'scale(1) rotate(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>
